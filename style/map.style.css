@@ -1,0 +1,1147 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');  
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FIX: растягиваем html и body на всю высоту */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;        /* FIX: колонка для sticky-footer */
+  min-height: 100vh;             /* FIX: минимум — высота экрана */
+  /* FIX: убраны justify-content: center и align-items: center —
+     они ломали прижатие футера */
+  background-image: url(../image/background_1.jpg);
+  background-size: cover;
+  overflow-y: auto;
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
+  max-width: 1200px;
+  min-width: 320px;
+}
+
+@media (min-width: 640px) {
+  .container { max-width: 640px; }
+}
+
+@media (min-width: 768px) {
+  .container { max-width: 768px; }
+}
+
+@media (min-width: 1024px) {
+  .container { max-width: 1024px; }
+}
+
+@media (min-width: 1280px) {
+  .container { max-width: 1280px; }
+}
+
+@media (min-width: 1536px) {
+  .container { max-width: 1536px; }
+}
+
+header,
+footer {
+  display: block;
+}
+
+.header {
+  flex-shrink: 0;
+  padding: 75px 0 0;
+}
+
+@media screen and (max-width: 480px) {
+  .header { padding-top: 50px; }
+}
+
+.header__row {
+  left: 0;
+  right: 0;
+}
+
+.header__row--main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 75px;
+  background: #2a2a2a;
+  z-index: 101;
+}
+
+@media screen and (max-width: 480px) {
+  .header__row--main { height: 50px; }
+}
+
+.header__row--sub {
+  height: 50px;
+  font-size: 16px;
+  background: #1A1A1A;
+}
+
+@media screen and (max-width: 1024px) {
+  .header__row--sub { height: 0; }
+}
+
+.header__row--sub .header-nav__item {
+  margin-left: 30px;
+}
+
+.header__row--sub .header-nav__item a {
+  opacity: .5;
+}
+
+.header__row--sub .header-nav__item.is-active {
+  box-shadow: inset 0 -1px #fff;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .header__container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header__container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.header__start {
+  order: 1;
+  height: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .header__start {
+    order: 1;
+    width: 50%;
+  }
+}
+
+.header__logo {
+  order: 2;
+  flex-shrink: 0;
+  font-size: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.header__logo input {
+  padding: 15px;
+  width: 300px;
+  border-radius: 10px;
+  color: #333;
+  background-color: #f7f7f7;
+  outline: none;
+}
+
+.header__logo input:focus {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+input::placeholder {
+  font-family: 'Playfair Display';
+  opacity: 0.5;
+}
+
+.header__logo button {
+  padding: 7px 14px;
+  border-radius: 10px;
+  border-color: #333;
+}
+
+.header__logo button:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .header__logo {
+    order: 2;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+}
+
+.header__logo img {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  .header__logo { width: 96px; }
+}
+
+.header__button {
+  font-size: 12px;
+  height: 100%;
+  padding: 0 40px;
+  line-height: 120%;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .header__button {
+    background: none !important;
+    color: #f33;
+    padding: 0;
+  }
+  .header__button br { content: ""; }
+  .header__button br:after { content: " "; }
+  .header__button:hover {
+    color: #fff !important;
+    background: none !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header__button {
+    font-size: 8px;
+    margin-left: 10px;
+  }
+}
+
+.header__burger {
+  background: url(https://iremember.ru/local/templates/iremember/images/icons/burger.svg) no-repeat;
+  background-position: center center;
+  background-size: 100%;
+  width: 20px;
+  height: 100%;
+  cursor: pointer;
+  display: none;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .header__burger { display: block; }
+}
+
+@media screen and (max-width: 480px) {
+  .header__burger { width: 15px; }
+}
+
+.header__close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0 20px;
+  background: url(https://iremember.ru/local/templates/iremember/images/icons/close-red.svg) no-repeat;
+  background-position: center center;
+  background-size: 100%;
+  width: 20px;
+  height: 75px;
+  cursor: pointer;
+  display: none;
+  flex-shrink: 0;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 1024px) {
+  .header__close { display: block; }
+}
+
+@media screen and (max-width: 480px) {
+  .header__close {
+    height: 50px;
+    width: 15px;
+    margin: 0 10px;
+  }
+}
+
+.header-nav {
+  display: flex;
+  height: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .header-nav {
+    position: fixed;
+    z-index: 1;
+    overflow-y: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #1A1A1A;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.header-nav__item {
+  list-style-type: none;
+  margin-left: 40px;
+  position: relative;
+  transition: all .2s ease;
+}
+
+@media screen and (max-width: 1024px) {
+  .header-nav__item {
+    margin: 20px 0;
+    margin-left: 20px !important;
+    padding-left: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-nav__item {
+    margin-left: 0 !important;
+    padding-left: 20px;
+  }
+}
+
+.header-nav__item:first-of-type {
+  margin-left: 0;
+}
+
+.header-nav__item a {
+  color: #fff;
+  opacity: .7;
+  transition: all .2s ease;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header-nav__item a:hover {
+  opacity: 1;
+}
+
+.header-nav__item.is-active {
+  box-shadow: inset 0 -4px #f33;
+}
+
+@media screen and (max-width: 1024px) {
+  .header-nav__item.is-active {
+    box-shadow: none;
+    border-left: 4px solid #FF3333;
+  }
+}
+
+.header-nav__item.is-active a {
+  opacity: 1;
+}
+
+.header-search {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-right: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 480px) {
+  .header-search { padding-right: 0; }
+}
+
+.header-search input {
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+  background: none;
+  color: #111;
+  padding: 0 20px;
+  border: none;
+}
+
+@media screen and (max-width: 480px) {
+  .header-search input { font-size: 14px; }
+}
+
+.header-search button {
+  opacity: .5;
+  transition: all .2s ease;
+}
+
+.header-search button:hover {
+  opacity: 1;
+}
+
+.header.is-static {
+  position: relative;
+}
+
+.header.is-static .header__row {
+  position: absolute;
+}
+
+.header.is-static .header__row--sub {
+  position: relative;
+}
+
+.header.is-mobile-menu-open {
+  position: static;
+  z-index: 103;
+}
+
+.header.is-mobile-menu-open .header__close,
+.header.is-mobile-menu-open .header-nav,
+.header.is-mobile-menu-open .header-nav-dropdown {
+  visibility: visible;
+  opacity: 1;
+  transition: all .2s ease;
+}
+
+.header__select {
+  order: 3;
+}
+
+.custom-select {
+  background-color: white;
+  border: thin solid #242424;
+  border-radius: 10px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.4em 3em 0.4em 0.6em;
+
+  /* reset */
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, black 50%),
+    linear-gradient(135deg, black 50%, transparent 50%),
+    linear-gradient(to right, gray, gray);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+
+.custom-select:focus {
+  background-image:
+    linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    linear-gradient(to right, gray, gray);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+  border-color: grey;
+  outline: 0;
+}
+
+/* FIX: главный блок растягивается, прижимая футер вниз */
+.main {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.container__marker {
+  width: 100%;
+  max-width: 1400px; 
+  aspect-ratio: 1367 / 1151;   /* ← точная пропорция вашей картинки */
+  margin: 75px auto 0;
+  border: 2px solid;
+  position: relative;
+  background-image: url(../image/luninets.png);
+  background-size: cover;      /* при совпадении пропорций обрезки НЕ будет */
+  background-position: center;
+  filter: drop-shadow(8px 8px 10px gray);
+}
+
+@media (max-width: 1280px) {
+  .container__marker { height: 700px; }
+}
+
+@media (max-width: 768px) {
+  .container__marker {
+    height: 500px;
+    margin-top: 50px;           /* FIX: высота шапки на мобильных */
+  }
+}
+
+svg {
+  cursor: pointer;
+}
+
+.circle {
+  height: 20px;
+  width: 20px;
+  background: red;
+  border-radius: 50%;
+  border: 3px solid;
+}
+
+
+.bostyn{
+  position: absolute;
+  top: 595px;
+  left: 480px;
+  z-index: 10; 
+}
+
+.barsukovo{
+  position: absolute;
+  top: 695px;
+  left: 880px;
+  z-index: 10;
+}
+
+.bogdanovka{
+  position: absolute;
+  top: 650px;
+  left: 150px;
+  z-index: 10; 
+}
+
+.chuchevichi{
+  position: absolute;
+  top: 270px;
+  left: 590px;
+  z-index: 10;
+}
+
+.boroviki{
+  position: absolute;
+  top: 390px;
+  left: 670px;
+  z-index: 10;
+}
+
+.ozero{
+  position: absolute;
+  top: 605px;
+  left: 370px;
+  z-index: 10;
+}
+
+.brodnitsa{
+  position: absolute;
+  top: 760px;
+  left: 700px;
+  z-index: 10;
+}
+
+.veluta{
+  position: absolute;
+  top: 490px;
+  left: 520px;
+  z-index: 10;
+}
+
+.vulka{
+  position: absolute;
+  bottom: 370px;
+  left: 410px;
+  z-index: 10;
+}
+
+.bor{
+  position: absolute;
+  bottom: 560px;
+  left: 680px;
+  z-index: 10;
+}
+
+.dvorets{
+  position: absolute;
+  bottom: 310px;
+  left: 640px;
+  z-index: 10;
+}
+
+.dvolya{
+  position: absolute;
+  bottom: 470px;
+  left: 640px;
+  z-index: 10;
+} 
+
+.dubovka{
+ position: absolute;
+ bottom: 340px;
+ left: 240px;
+ z-index: 10;
+}
+
+.dyatlovichi{
+  position: absolute;
+  top: 680px;
+  left: 540px;
+  z-index: 10;
+}
+
+.zamoshie{
+  position: absolute;
+  top: 605px;
+  left: 450px;
+  z-index: 10;
+}
+
+.zastenok{
+  position: absolute;
+  bottom: 540px;
+  left: 710px;
+  z-index: 10;
+}
+
+.kozhan{
+  position: absolute;
+  bottom: 260px;
+  left: 740px;
+  z-index: 10;
+}
+
+.kormuzh{
+  position: absolute;
+  top: 370px;
+  left: 730px;
+  z-index: 10;
+}
+
+.krvolya{
+  position: absolute;
+  bottom: 520px;
+  left: 790px;
+  z-index: 10;
+}
+
+.lachva{
+  position: absolute;
+  bottom: 260px;
+  left: 850px;
+  z-index: 10;
+}
+
+.lahovka{
+  position: absolute;
+  bottom: 220px;
+  left: 910px;
+  z-index: 10;
+}
+
+.lobcha{
+ position: absolute;
+ bottom: 390px;
+ left: 240px;
+ z-index: 10;
+}
+
+.lugi{
+  position: absolute;
+  top: 330px;
+  left: 770px;
+  z-index: 10;
+}
+
+.lunin{
+  position: absolute;
+  bottom: 390px;
+  left: 340px;
+  z-index: 10;
+}
+
+.lutoven{
+  position: absolute;
+  bottom: 220px;
+  left: 1010px;
+  z-index: 10;
+}
+
+.luban{
+  position: absolute;
+  bottom: 260px;
+  left: 880px;
+  z-index: 10;
+}
+
+.lubachin{
+  position: absolute;
+  top: 820px;
+  left: 700px;
+  z-index: 10;
+}
+
+.lyushha{
+  position: absolute;
+  top: 500px;
+  left: 450px;
+  z-index: 10;
+}
+
+.mlcuch{
+  position: absolute;
+  top: 250px;
+  left: 620px;
+  z-index: 10;
+}
+
+
+.melyasnica{
+  position: absolute;
+  bottom: 370px;
+  left: 480px;
+  z-index: 10;
+}
+
+.mizh{
+  position: absolute;
+  bottom: 560px;
+  left: 780px;
+  z-index: 10;
+}
+
+.ozernitsa{
+  position: absolute;
+  bottom: 340px;
+  left: 670px;
+  z-index: 10;
+}
+
+.novoselki{
+  position: absolute;
+  top: 400px;
+  left: 520px;
+  z-index: 10;
+}
+
+
+.sitdvor{
+  position: absolute;
+  bottom: 320px;
+  left: 1070px;
+  z-index: 10;
+}
+
+
+.sosnovka{
+  position: absolute;
+  bottom: 310px;
+  left: 600px;
+  z-index: 10
+}
+
+
+.flerovo{
+  position: absolute;
+  top: 720px;
+  left: 940px;
+  z-index: 10;
+}
+
+
+.yazvinki{
+  position: absolute;
+  bottom: 320px;
+  left: 610px;
+  z-index: 10
+}
+
+.luninets{
+  position: absolute;
+  bottom: 323px;
+  left: 540px;
+  z-index: 10
+}
+
+.mikashevichi{
+  position: absolute;
+  bottom: 250px;
+  right: 130px;
+  z-index: 10
+}
+
+
+img {
+  width: 100%;
+  height: auto;
+  filter: grayscale(50%) contrast(120%);
+}
+
+/*.container__img svg{
+    width: 100%;
+    height: 800px;
+} */
+
+.modal {
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: transform .5s ease-in;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+}
+
+.show { transform: scale(1); }
+.hide { transform: scale(0); }
+
+.modal__container {
+  position: relative;
+  display: flex;
+  width: 80%;                  /* ← было 70%, стало 80% */
+  max-width: 1200px;
+  min-width: 600px;            /* ← не сжимать меньше */
+  flex-shrink: 0;              /* ← не подстраиваться под содержимое */
+  max-height: 85vh;
+  gap: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* кнопка закрытия */
+.modal__container .modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.modal__container .modal__close i {
+  font-size: 32px;
+  opacity: 0.5;
+  transition: opacity .3s ease-in;
+  display: block;
+}
+
+.modal__container .modal__close i:hover { opacity: 1; }
+
+/* картинка — половина окна */
+.modal__container .modal__image {
+  flex: 1 1 50%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 70vh;              /* ← ФИКС: явная высота, а не max-height */
+}
+
+.modal__container .modal__image img {
+  max-width: 100%;           /* ← НЕ width: 100% */
+  max-height: 100%;
+  width: auto;               /* ← вместо width: 100% */
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 5px;
+  filter: none;
+  image-rendering: auto;     /* или -webkit-optimize-contrast, если хотите резче */
+}
+
+/* текст — вторая половина */
+.modal__container .modal__info {
+  flex: 1 1 50%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 80vh;
+  padding-right: 5px;
+}
+
+.modal__container .modal__info .modal__info-title h1 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.modal__container .modal__info .modal__info-description p {
+  line-height: 25px;
+  text-align: justify;
+}
+
+.modal__container .modal__info .modal__info-button {
+  display: block;
+  margin-top: auto;
+  padding: 10px;
+  border: 2px solid;
+  width: 100%;
+  text-decoration: none;
+  font-size: 20px;
+  color: #000;
+  text-align: center;
+  transition: all .5s ease-in;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modal__container .modal__info .modal__info-button:hover { background: gray; }
+
+/* мобильные */
+@media (max-width: 768px) {
+  .modal__container {
+    width: 95%;
+    min-width: 0;              /* ← сбрасываем минимум */
+    flex-direction: column;
+    max-height: 90vh;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .modal__container .modal__image {
+    flex: 0 0 auto;
+    max-height: 40vh;
+  }
+
+  .modal__container .modal__image img { max-height: 40vh; }
+
+  .modal__container .modal__info {
+    flex: 1;
+    max-height: 45vh;
+  }
+}
+
+/* TOOLTIP */
+
+[data-tooltip] {
+  --arrow-size: 10px;
+  cursor: pointer;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+  will-change: transform;
+  z-index: 500;
+}
+
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  padding: 5px 10px;
+  min-width: 50px;
+  max-width: 100px;
+  left: 50%;
+  bottom: 18px;
+  width: max-content;
+  width: -moz-max-content;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: rgba(59, 72, 80, 0.9);
+  background-image: linear-gradient(30deg,
+    rgba(59, 72, 80, 0.44),
+    rgba(59, 68, 75, 0.44),
+    rgba(60, 82, 88, 0.44));
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+  white-space: pre-wrap;
+  transform: translate(-50%, calc(0px - var(--arrow-size))) scale(0.5);
+}
+
+[data-tooltip]:after {
+  content: '';
+  left: 50%;
+  bottom: 18px;
+  border-style: solid;
+  border-width: var(--arrow-size) var(--arrow-size) 0px var(--arrow-size);
+  border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+  transition-duration: 0s;
+  transform-origin: top;
+  transform: translateX(-50%) scaleY(0);
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+
+[data-tooltip]:hover:before {
+  transition-delay: 0.3s;
+  transform: translate(-50%, calc(0px - var(--arrow-size))) scale(1);
+}
+
+[data-tooltip]:hover:after {
+  transition-delay: 0.5s;
+  transition-duration: 0.2s;
+  transform: translateX(-50%) scaleY(1.5);
+}
+
+/* FIX: футер больше не растягивается, а прижимается вниз */
+.footer {
+  margin-top: 5px;
+  width: 100%;
+  background: #242424;
+  color: #ffffff80;
+  font-size: 12px;
+  /* FIX: убран line-height: 5% — он ломал текст */
+  line-height: 1.4;
+  flex-shrink: 0;             /* FIX: было flex: 1 0 auto */
+}
+
+.footer a {
+  color: #ffffff80;
+  transition: all .2s ease;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.footer__container {
+  padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer__container {
+    padding: 40px 10px;
+  }
+}
+
+.footer__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .footer__row {
+    flex-direction: column;
+  }
+}
+
+.footer__row--social {
+  margin: 40px 0 0;
+}
+
+.footer__row--about {
+  margin: 30px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  .footer__row--about {
+    margin-top: 40px;
+    text-align: center;
+  }
+}
+
+.footer__logo {
+  font-size: 0;
+}
+
+.footer__about {
+  width: 400px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer__about {
+    width: auto;
+  }
+}
+
+.footer__contact {
+  text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+  .footer__contact {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+.footer-nav {
+  font-size: 14px;
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-nav {
+    margin-top: 40px;
+  }
+}
+
+.footer-nav__item {
+  list-style-type: none;
+  margin-left: 30px;
+  transition: all .2s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-nav__item {
+    margin: 0 10px !important;
+  }
+}
+
+.footer-nav__item:first-of-type {
+  margin-left: 0;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+}
+
+.footer-social__item {
+  list-style-type: none;
+  transition: all .2s ease;
+  opacity: .5;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-social__item {
+    margin: 0 10px !important;
+  }
+}
+
+.footer-social__item:first-of-type {
+  margin-left: 0;
+}
+
+.footer-social__item:hover {
+  opacity: 1;
+}
