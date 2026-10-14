@@ -44,7 +44,7 @@ const villages = [
     dataId: 5,
     title: 'д.Боровики',
     dataTooltip: 'Боровики',
-    desc: 'За годы войны в деревне было разрушен 92 дома и убито 3 мирных жителя',
+    desc: 'За годы войны в деревне было разрушено 92 дома и убито 3 мирных жителя',
     link: 'https://db.narb.by/village/boroviki-2/',
     img: './image/voyna.jpg',
     class: 'circle boroviki',
