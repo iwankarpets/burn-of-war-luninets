@@ -789,6 +789,19 @@ svg {
   z-index: 10
 }
 
+.cherebasovo{
+  position: absolute;
+  top: 850px;
+  left: 940px;
+  z-index: 10;
+}
+
+.mor{
+  position: absolute;
+  bottom: 330px;
+  right: 100px;
+  z-index: 10
+}
 
 img {
   width: 100%;
