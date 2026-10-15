@@ -893,10 +893,10 @@ img {
 .modal__container {
   position: relative;
   display: flex;
-  width: 80%;                  /* ← было 70%, стало 80% */
+  width: 80%;               
   max-width: 1200px;
-  min-width: 600px;            /* ← не сжимать меньше */
-  flex-shrink: 0;              /* ← не подстраиваться под содержимое */
+  min-width: 600px;            
+  flex-shrink: 0;              
   max-height: 85vh;
   gap: 20px;
   background: #fff;
@@ -932,22 +932,22 @@ img {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  height: 70vh;              /* ← ФИКС: явная высота, а не max-height */
+  height: 70vh;              
 }
 
 .modal__container .modal__image img {
-  max-width: 100%;           /* ← НЕ width: 100% */
+  max-width: 100%;           
   max-height: 100%;
-  width: auto;               /* ← вместо width: 100% */
+  width: auto;               
   height: auto;
   object-fit: contain;
   display: block;
   border-radius: 5px;
   filter: none;
-  image-rendering: auto;     /* или -webkit-optimize-contrast, если хотите резче */
+  image-rendering: auto;   
 }
 
-/* текст — вторая половина */
+
 .modal__container .modal__info {
   flex: 1 1 50%;
   min-width: 0;
@@ -985,7 +985,7 @@ img {
 
 .modal__container .modal__info .modal__info-button:hover { background: gray; }
 
-/* мобильные */
+
 @media (max-width: 768px) {
   .modal__container {
     width: 95%;
@@ -1009,7 +1009,7 @@ img {
   }
 }
 
-/* TOOLTIP */
+
 
 [data-tooltip] {
   --arrow-size: 10px;
@@ -1079,16 +1079,15 @@ img {
   transform: translateX(-50%) scaleY(1.5);
 }
 
-/* FIX: футер больше не растягивается, а прижимается вниз */
+
 .footer {
   margin-top: 5px;
   width: 100%;
   background: #242424;
   color: #ffffff80;
   font-size: 12px;
-  /* FIX: убран line-height: 5% — он ломал текст */
   line-height: 1.4;
-  flex-shrink: 0;             /* FIX: было flex: 1 0 auto */
+  flex-shrink: 0;  
 }
 
 .footer a {
